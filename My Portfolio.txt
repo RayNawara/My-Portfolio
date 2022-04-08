@@ -1,3 +1,6 @@
+All the data is under  /var/sentora/hostdata/zadmin/public_html/raynawara_com/
+10-html5css3  8-apis  9-mobileapps  assets  cgi-bin  crypto  images  index.html  rjnawara_tk
+
 My Portfolio
 
 Go to GCP RJN
@@ -66,4 +69,12 @@ IMPORTANT NOTES:
    Donating to EFF:                    https://eff.org/donate-le
 
 
+cat passwords.txt
+Server IP address : 34.73.73.100
+Panel URL         : http://cpanel.rjnawara.tk
+zadmin Password   : zDsJ0Q1CnVagrkEi
 
+MySQL Root Password      : NVgwnbBTC5hxvZ9t
+MySQL Postfix Password   : 9qHLST2Hw8na4OvF
+MySQL ProFTPd Password   : qK92ycclSCNFzDrr
+MySQL Roundcube Password : HBRRs8yLfbZsDwaX
