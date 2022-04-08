@@ -1,0 +1,69 @@
+My Portfolio
+
+Go to GCP RJN
+
+Under GCP with RJN1027!
+
+open ssh via console
+
+sudo -s
+
+cd /usr/local/letsencrypt
+
+./letsencrypt-auto renew
+
+
+***********************************
+
+ssh rjnawara@34.73.73.100
+
+For cpanel go to 
+
+Go to http://34.73.73.100/ -> cPanel
+
+I'm not sure how to renew but this command got new certs
+
+./letsencrypt-auto -d udemytestvid2.ga
+
+The out put was:
+
+Updated:
+  ca-certificates.noarch 0:2020.2.41-70.0.el7_8
+
+Complete!
+Upgrading certbot-auto 1.5.0 to 1.8.0...
+Replacing certbot-auto...
+Creating virtual environment...
+Installing Python packages...
+Installation succeeded.
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator apache, Installer apache
+Obtaining a new certificate
+Performing the following challenges:
+http-01 challenge for raynawara.com
+Waiting for verification...
+Cleaning up challenges
+Deploying Certificate to VirtualHost /etc/sentora/configs/apache/httpd-vhosts-le-ssl.conf
+Redirecting vhost in /etc/sentora/configs/apache/httpd-vhosts.conf to ssl vhost in /etc/sentora/configs/apache/httpd-vhosts-le-ssl.conf
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Congratulations! You have successfully enabled https://raynawara.com
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/raynawara.com-0001/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/raynawara.com-0001/privkey.pem
+   Your cert will expire on 2020-12-15. To obtain a new or tweaked
+   version of this certificate in the future, simply run
+   letsencrypt-auto again with the "certonly" option. To
+   non-interactively renew *all* of your certificates, run
+   "letsencrypt-auto renew"
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+
+
+
