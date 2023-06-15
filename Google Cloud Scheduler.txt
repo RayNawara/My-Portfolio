@@ -1,0 +1,62 @@
+Google Cloud Scheduler
+
+To load your service account JSON file to Google Secret Manager, follow these steps:
+
+Using Google Cloud SDK:
+
+gcloud secrets create cloud-function-service-account-key --replication-policy="automatic" --data-file="path/to/service_account.json"
+_tK1afp7mLugOsFLJq1Usy_hfifNx3UttGXKa78bJZQ
+WY4XM47voSHzzRp64WZZf5J1VjjtByCCSSyJfhxScRI
+export CLIENT_ID='_tK1afp7mLugOsFLJq1Usy_hfifNx3UttGXKa78bJZQ'
+export CLIENT_SECRET='WY4XM47voSHzzRp64WZZf5J1VjjtByCCSSyJfhxScRI'
+export CLIENT_ID='7OVvqPas44JD5SSANzwfosQOMdkAXDb8QzhVxlyBJOA'
+export CLIENT_SECRET='KYw_kASw3HEwn-WLF5kgoE7VxzANJA8OPbz_zwGUth0'
+
+production-rci-console
+
+ap Doorkeeper::Application.find_by_name('PWCC')
+#<Doorkeeper::Application:0x00007c7304f3b4e0> {
+              :id => 1,
+            :name => "PWCC",
+             :uid => "7OVvqPas44JD5SSANzwfosQOMdkAXDb8QzhVxlyBJOA",
+          :secret => "KYw_kASw3HEwn-WLF5kgoE7VxzANJA8OPbz_zwGUth0",
+    :redirect_uri => nil,
+          :scopes => #<Doorkeeper::OAuth::Scopes:0x00007c7304f00b10 @scopes=[]>,
+    :confidential => false,
+      :created_at => Thu, 29 Sep 2022 17:42:21.656463000 UTC +00:00,
+      :updated_at => Thu, 29 Sep 2022 17:43:39.267575000 UTC +00:00,
+        :owner_id => 5,
+      :owner_type => "User"
+
+production-rci-beta-console is the same.
+
+Staging is:
+ap Doorkeeper::Application.find_by_name('PWCC')
+#<Doorkeeper::Application:0x0000725bc7c12290> {
+              :id => 1,
+            :name => "PWCC",
+             :uid => "cWprEt04kWWc3EXtui49v777RIEL9ZpgqilxquId0Q0",
+          :secret => "BGlfJDFF-IxAxgESeXmK5ucVNce6Ti3PzT5cpn3YzOk",
+    :redirect_uri => nil,
+          :scopes => #<Doorkeeper::OAuth::Scopes:0x0000725bc78bf520 @scopes=[]>,
+    :confidential => false,
+      :created_at => Mon, 26 Sep 2022 19:46:27.830153000 UTC +00:00,
+      :updated_at => Mon, 26 Sep 2022 19:58:46.887941000 UTC +00:00,
+        :owner_id => 5,
+      :owner_type => "User"
+
+gcloud functions deploy cloud-scheduler-function-run-scheduled-jobs   --entry-point call_job_endpoint   --source .   --runtime ruby32   --trigger-http   --allow-unauthenticated   --region us-west1 --set-env-vars=CLIENT_ID="cWprEt04kWWc3EXtui49v777RIEL9ZpgqilxquId0Q0",CLIENT_SECRET="BGlfJDFF-IxAxgESeXmK5ucVNce6Ti3PzT5cpn3YzOk"
+
+To run the Cloud Function locally, execute the following command:
+
+bundle exec functions-framework-ruby --source=config.ru --target=call_job_endpoint
+
+gcloud functions deploy cloud-scheduler-function \
+    --runtime=ruby32 \
+    --trigger-http \
+    --entry-point=call_job_endpoint
+
+gcloud functions deploy production-rci-scheduled-jobs   --entry-point call_job_endpoint   --source .   --runtime ruby32   --trigger-http   --allow-unauthenticated
+--region us-west1 --set-env-vars=CLIENT_ID="7OVvqPas44JD5SSANzwfosQOMdkAXDb8QzhVxlyBJOA",CLIENT_SECRET="KYw_kASw3HEwn-WLF5kgoE7VxzANJA8OPbz_zwGUth0"
+
+curl 'http://localhost:8080' -d '{"environment":"local","host": "localhost:3000","job_key":"ingest_auction","endpoint":"api/v1/create-auctions","project_number":"914003538166"}'
