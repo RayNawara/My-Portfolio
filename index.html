@@ -33,10 +33,78 @@
   li {
     display: inline-block;
   }
+
+  /* Portfolio grid alignment */
+  #portfolio .portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    align-items: stretch;
+  }
+  #portfolio .item {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  #portfolio .item header {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em;
+  }
+  #portfolio .item header h3 {
+    margin-top: 0;
+  }
+  #portfolio .item header p {
+    flex: 1;
+    margin-bottom: 0;
+  }
+  @media screen and (max-width: 736px) {
+    #portfolio .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Collapsible Certificates */
+  .certificates-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+  }
+  .certificates-container.expanded {
+    max-height: 2000px;
+    transition: max-height 0.5s ease-in;
+  }
+  .toggle-certificates {
+    cursor: pointer;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-bottom: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .toggle-certificates:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  }
+  .toggle-certificates .arrow {
+    display: inline-block;
+    margin-left: 8px;
+    transition: transform 0.3s;
+  }
+  .toggle-certificates.expanded .arrow {
+    transform: rotate(180deg);
+  }
 </style>
 
 <head>
-  <title>Ray Nawara - Developer</title>
+  <title>Ray Nawara - AI & Data Warehouse Architect</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
@@ -56,9 +124,9 @@
 
       <!-- Logo -->
       <div id="logo">
-        <span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
+        <span class="image avatar48"><img src="images/avatar-ray.png" alt="Ray Nawara" /></span>
         <h1 id="title">Ray Nawara</h1>
-        <p>Web Developer</p>
+        <p>AI & Data Warehouse Architect</p>
       </div>
 
       <!-- Nav -->
@@ -78,10 +146,8 @@
 
       <!-- Social Icons -->
       <ul class="icons">
-        <!--							<li><a href="https://twitter.com/r_nawara" class="icon fa-twitter"><span class="label">Twitter</span></a></li>-->
-        <!--							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>-->
-        <li><a href="https://github.com/RayNawara" class="icon fa-github"><span class="label">Github</span></a></li>
-        <!--							<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>-->
+        <li><a href="https://www.linkedin.com/in/rj-nawara-533797162/" class="icon fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+        <li><a href="https://github.com/RayNawara" class="icon fa-github" target="_blank"><span class="label">Github</span></a></li>
         <li><a href="#contact" class="icon fa-envelope"><span class="label">Email</span></a></li>
       </ul>
 
@@ -98,7 +164,8 @@
 
         <header>
           <h2 class="alt">Hi! I'm <strong>Ray Nawara</strong>.</h2>
-          <p>Please feel free to view my portfolio web site for information about some of my work.</p>
+          <p>I specialize in <strong>AI-powered analytics</strong> and <strong>enterprise data warehouses</strong>.<br />
+          Currently building multi-persona AI systems that transform raw dealership data into actionable insights.</p>
         </header>
 
         <footer>
@@ -144,93 +211,109 @@
           <h2>My Portfolio</h2>
         </header>
 
-        <p>Various projects showing HTML5, CSS3, PHP, Python, React/Redux, Ruby on Rails and node.js on Heroku</p>
+        <p>Enterprise data systems, AI-powered analytics, and full-stack web applications built with Rails 8.1, PostgreSQL 18, and modern JavaScript.</p>
 
-        <div class="row">
-          <div class="col-xs-1 col-6 col-12-mobile">
-            <article class="item">
-              <a href="https://raynawara.com/10-html5css3/analogClock.html" class="image fit">
-                <img class="responsive" src="images/AnalogClock.PNG">
-              </a><br />
-              <header>
-                <h3>Analog Clock (written in HTML)</h3>
-              </header>
-            </article>
-            <article class="item">
-              <a href="https://raynawara.com/cgi-bin/MasterMind.py/" class="image fit">
-                <img class="responsive" src="images/MasterMind.PNG">
-              </a><br />
-              <header>
-                <h3>MasterMind Game (written in Python)</h3>
-              </header>
-            </article>
-            <article class="item">
-              <a href="https://raynawara.com/8-apis/zipCode.php" class="image fit">
-                <img class="responsive" src="images/ZipCodeApp.PNG">
-              </a><br />
-              <header>
-                <h3>Find a Zip/Postal Code (written in PHP)</h3>
-              </header>
-            </article>
-            <article class="item">
-              <a href="https://expensify-app-rjn.herokuapp.com/" class="image fit">
-                <img class="responsive" src="images/Expensify.PNG">
-              </a><br />
-              <header>
-                <h3>Expenses App written in JavaScript and React/Redux with Firebase</h3>
-              </header>
-            </article>
+        <div class="portfolio-grid">
+          <!-- Row 1 -->
+          <article class="item">
+            <div class="image fit" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; text-align: center;">
+              <h3 style="color: white; margin: 0;">Automotive Analytics Platform</h3>
+              <p style="color: rgba(255,255,255,0.9); font-size: 0.9em;">AI-Powered Data Warehouse</p>
+            </div>
+            <header>
+              <h3>AI-Powered Automotive Data Warehouse</h3>
+              <p style="font-size: 0.85em; text-align: left;">
+                <strong>Sole architect and implementor</strong> of an enterprise-scale PostgreSQL 18 data warehouse for a national automotive digital marketing company. Integrates data from VinSolutions, Drive Centric, Agile CRM, CallRail, GA4, Google Ads, and Facebook Ads.
+                <br /><br />
+                <strong>AI Personas:</strong> Designed and built a multi-persona AI analysis system featuring Sales Performance, Digital Marketing, BDC Operations, Inventory & Merchandising analysts, plus synthesis summarization. Going to Beta for nationwide dealership rollout.
+                <br /><br />
+                <strong>Tech:</strong> Rails 8.1, Ruby 4.0, PostgreSQL 18, Hotwire, Kamal, Solid Queue, BigQuery, Google Cloud, Azure
+              </p>
+            </header>
+          </article>
 
-            <article class="item">
-              <a href="https://obscure-bastion-43985.herokuapp.com/login" class="image fit">
-                <img class="responsive" src="images/My_Message_Me.png">
-              </a><br />
-              <header>
-                <h3>Chat App written in Ruby 2.6.0 and Rails 5.2.2 with Devise and Semantic UI</h3>
-              </header>
-            </article>
+          <article class="item">
+            <div class="image fit" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); padding: 40px; text-align: center;">
+              <h3 style="color: white; margin: 0;">Paid Advertising Integration</h3>
+              <p style="color: rgba(255,255,255,0.9); font-size: 0.9em;">Google Ads & Facebook Ads</p>
+            </div>
+            <header>
+              <h3>Google Ads & Facebook Ads Analytics</h3>
+              <p style="font-size: 0.85em; text-align: left;">
+                Integrated Google Ads and Facebook Ads data into the warehouse for comprehensive paid media analysis.
+                <br /><br />
+                <strong>Features:</strong> Campaign performance tracking, budget pacing, click share calculations, cost-per-lead analysis, and cross-platform attribution.
+                <br /><br />
+                <strong>Tech:</strong> Google Ads API, Facebook Marketing API, Rails 8.1, PostgreSQL, CSV import automation
+              </p>
+            </header>
+          </article>
 
-          </div>
-          <div class="col-xs-1 col-6 col-12-mobile">
-            <article class="item">
-              <a href="https://coc-chat-app.herokuapp.com/" class="image fit">
-                <img class="responsive" src="images/ChatApp.PNG">
-              </a><br />
-              <header>
-                <h3>Chat Room (using node.js deployed on Heroku)</h3>
-              </header>
-            </article>
-            <article class="item">
-              <img height="400px" class="responsive image centered" src="images/bpdrllc.jpg" " alt="" />
-          <header>
-            <h3>Web Site (built for company during Hurricane Maria cleanup)</h3>
-          </header>
-        </article>
-        <article class=" item">
-              <a href="https://raynawara.com/9-mobileapps/appjs/" class="image fit">
-                <img class="responsive" src="images/SendEmail.PNG">
-              </a><br />
-              <header>
-                <h3>Mobile App to send email written in JavaScript and PHP</h3>
-              </header>
-            </article>
-            <article class="item">
-              <a href="https://indecision-app-rjn.herokuapp.com/" class="image fit">
-                <img class="responsive" src="images/IndecisionApp.PNG">
-              </a><br />
-              <header>
-                <h3>A React app to help you make a decision!</h3>
-              </header>
-            </article>
-            <article class="item">
-              <a href="https://rjn-finance-tracker.herokuapp.com/" class="image fit">
-                <img class="responsive" src="images/Fianace-Tracker.png">
-              </a><br />
-              <header>
-                <h3>A Stock Tracking app written in Ruby 2.6.0 and Rails 5.2.2 with Devise and Twitter-Bootstrap</h3>
-              </header>
-            </article>
-          </div>
+          <!-- Row 2 -->
+          <article class="item">
+            <div class="image fit" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); padding: 40px; text-align: center;">
+              <h3 style="color: white; margin: 0;">ETL Pipeline System</h3>
+              <p style="color: rgba(255,255,255,0.9); font-size: 0.9em;">Multi-Source Data Integration</p>
+            </div>
+            <header>
+              <h3>Enterprise ETL Pipelines</h3>
+              <p style="font-size: 0.85em; text-align: left;">
+                Architected and built comprehensive ETL systems handling millions of records from multiple automotive industry data sources.
+                <br /><br />
+                <strong>Features:</strong> Automated daily syncs, error monitoring with email alerts, incremental processing, data validation, and audit logging.
+                <br /><br />
+                <strong>Tech:</strong> Rails 8.1, Node.js, PostgreSQL, BigQuery, SFTP automation, Solid Queue background jobs
+              </p>
+            </header>
+          </article>
+
+          <article class="item">
+            <div class="image fit" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 40px; text-align: center;">
+              <h3 style="color: #333; margin: 0;">CallRail Integration</h3>
+              <p style="color: rgba(0,0,0,0.7); font-size: 0.9em;">Phone Call Analytics & Attribution</p>
+            </div>
+            <header>
+              <h3>CallRail Phone Analytics</h3>
+              <p style="font-size: 0.85em; text-align: left;">
+                Built comprehensive phone call tracking and lead attribution system integrated with dealership CRM data.
+                <br /><br />
+                <strong>Features:</strong> Call-to-lead matching, sales attribution, call recording integration, and phone performance analytics by source.
+                <br /><br />
+                <strong>Tech:</strong> CallRail API, Rails 8.1, PostgreSQL, automated matching algorithms
+              </p>
+            </header>
+          </article>
+
+          <!-- Row 3 -->
+          <article class="item">
+            <div class="image fit" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 40px; text-align: center;">
+              <h3 style="color: white; margin: 0;">Looker Studio Automation</h3>
+              <p style="color: rgba(255,255,255,0.9); font-size: 0.9em;">Automated Report Generation</p>
+            </div>
+            <header>
+              <h3>Looker Studio Report Automation</h3>
+              <p style="font-size: 0.85em; text-align: left;">
+                Built automated systems to generate and distribute Looker Studio reports for dealership clients.
+                <br /><br />
+                <strong>Features:</strong> Automated data source creation, scheduled report generation, dynamic date ranges, and multi-dealer report management.
+                <br /><br />
+                <strong>Tech:</strong> Node.js, Looker Studio API, Google Cloud, Puppeteer automation
+              </p>
+            </header>
+          </article>
+
+          <article class="item">
+            <div class="image fit" style="background: linear-gradient(135deg, #f5af19 0%, #f12711 100%); padding: 40px; text-align: center;">
+              <h3 style="color: white; margin: 0;">Collectibles Authentication Platform</h3>
+              <p style="color: rgba(255,255,255,0.9); font-size: 0.9em;">Trading Card Grading & Certification</p>
+            </div>
+            <header>
+              <h3>National Authentication Company Website</h3>
+              <p style="font-size: 0.85em; text-align: left;">
+                Multi-year development and maintenance for a premier trading card authentication and grading company. The platform supports card grading, certification services, and digital review capabilities for collectors nationwide.
+              </p>
+            </header>
+          </article>
         </div>
 
       </div>
@@ -244,17 +327,37 @@
           <h2>About Me</h2>
         </header>
 
-        <a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+        <div style="max-width: 300px; height: 350px; margin: 0 auto; border-radius: 8px; overflow: hidden;">
+          <img src="images/avatar-ray.png" alt="Ray Nawara" style="width: 110%; height: auto; object-fit: cover; margin-top: -80px; margin-left: -5%;" />
+        </div>
 
-        <p align="justify">Hi, I'm Ray Nawara, a remote, part-time consultant, software developer, technologist and entrepreneur. Lately I’ve been working as lead on a large Ruby on Rails web application. I’m also working with Google App Script and JavaScript, taking various forms of data such as Excel reports coming in via email and converting them into MySQL on Google Cloud, allowing the client to access the data via Google Data Studio.
-          <br />
-          I design and maintain systems on Windows, Linux and cloud platforms. I prefer back-end development with JavaScript, Node.js, Rails APIs, etc., but I do full stack application development with Ruby on Rails, JavaScript, Node.js, MySQL, PostgreSQL and more. My database skills include MySQL, PostgreSQL and ORMs as well as NoSQL. I am an AWS Certified Cloud Practioner.
-          
+        <p align="justify">
+          I'm Ray Nawara, a full-time <strong>AI & Data Warehouse Architect</strong> specializing in building AI-assisted intelligent analytics systems.
+        </p>
+
+        <p align="justify">
+          At a national automotive digital marketing company, I identified that their greatest untapped asset was a massive repository of automobile dealer data. I proposed the solution to the CEO and became the <strong>sole architect and implementor</strong> of a comprehensive PostgreSQL 18 data warehouse that integrates data from multiple industry platforms including VinSolutions, Drive Centric, Agile CRM, CallRail, GA4, Google Ads, and Facebook Ads.
+        </p>
+
+        <p align="justify">
+          <strong>What sets this system apart is the AI layer.</strong> I designed and built a multi-persona AI analysis system that doesn't just answer questions like "How many leads did we get this week?" but provides complete performance analysis through specialized AI personas: Sales Performance Analyst, Digital Marketing Analyst, BDC Operations Analyst, Inventory & Merchandising Analyst, and a Synthesis Summarization Analyst that ties it all together. This system is going to Beta and will be offered to automobile dealerships nationwide.
+        </p>
+
+        <p align="justify">
+          <strong>Current Tech Stack:</strong> Rails 8.1, Ruby 4.0, PostgreSQL 18, Hotwire (Turbo/Stimulus), Kamal deployment, Solid Queue/Cache/Cable, Node.js for ETL, Google Cloud (BigQuery), Microsoft Azure. I work with AI/LLM integration daily, building customizable prompt systems with hierarchical inheritance for dealer-specific customization.
+        </p>
+
+        <p align="justify">
+          <strong>Background:</strong> After 25+ years as a software company CEO managing 30+ offices, I returned to my first love: building software. I combine decades of executive-level business experience with hands-on technical expertise - I understand both the code and the business value it creates. Former Database Administrator, AWS Certified Cloud Practitioner. I work remotely and maintain a powerful local AI development environment for experimentation.
         </p>
 
         <header>
           <h2>Certificates</h2>
         </header>
+        <button class="toggle-certificates" onclick="toggleCertificates()">
+          View 26 Professional Certificates <span class="arrow">&#9660;</span>
+        </button>
+        <div id="certificates-container" class="certificates-container">
         <div class="row">
           <div class="column">
             <a href="images/aws-certified-cloud-practitioner.png">
@@ -509,6 +612,7 @@
             </a>
           </div>
         </div>
+        </div><!-- End certificates-container -->
       </div>
     </section>
 
@@ -520,12 +624,10 @@
           <h2>Contact</h2>
         </header>
 
-        <p>Hi! I'm a very experienced Enterprise developer who has moved to the web!
+        <p>I'm currently employed full-time building AI-powered data warehouse systems for the automotive industry.
+          While I'm happy in my current role, I'm always open to discussing interesting opportunities in AI, data engineering, or Rails development.</p>
 
-          I work remotely and prefer part-time.
-          If you have anything I can help you with, please feel free to contact me below!</p>
-
-          Thanks!
+        <p>Feel free to reach out!</p>
 
         <form action="https://formspree.io/rjnawara@gmail.com" method="POST" />
         <div class="row">
@@ -555,6 +657,18 @@
   <script>
     function gotop() {
       $('html, body').animate({ scrollTop: 0 }, 0);
+    }
+
+    function toggleCertificates() {
+      var container = document.getElementById('certificates-container');
+      var button = document.querySelector('.toggle-certificates');
+      container.classList.toggle('expanded');
+      button.classList.toggle('expanded');
+      if (container.classList.contains('expanded')) {
+        button.innerHTML = 'Hide Certificates <span class="arrow">&#9660;</span>';
+      } else {
+        button.innerHTML = 'View 26 Professional Certificates <span class="arrow">&#9660;</span>';
+      }
     }
   </script>
   <script src="assets/js/jquery.min.js"></script>
