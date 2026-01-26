@@ -101,6 +101,19 @@
   .toggle-certificates.expanded .arrow {
     transform: rotate(180deg);
   }
+
+  /* Certificates grid - auto-wrap 3 per row */
+  .certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    text-align: center;
+  }
+  @media screen and (max-width: 736px) {
+    .certificates-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 </style>
 
 <head>
@@ -362,7 +375,7 @@
           View 27 Professional Certificates <span class="arrow">&#9660;</span>
         </button>
         <div id="certificates-container" class="certificates-container">
-        <div class="row">
+        <div class="certificates-grid">
           <div class="column">
             <a href="images/Mastering AI Agents.jpg">
               <figure>
@@ -387,8 +400,6 @@
               </figure>
             </a>
           </div>
-        </div>
-        <div class="row">
           <div class="column">
             <a href="images/AWS Identity and Access Management (IAM) Foundations.jpg">
               <figure>
@@ -421,8 +432,6 @@
               </figure>
             </a>
           </div>
-        </div>
-        <div class="row">
           <div class="column">
             <a href="images/CCA-Certificate-Javascript_Level_1_500x500.jpg">
               <figure>
@@ -447,8 +456,6 @@
               </figure>
             </a>
           </div>
-        </div>
-        <div class="row">
           <div class="column">
             <a href="images/CCA-Certificate-jQuery_Level_1_500x500.jpg">
               <figure>
@@ -473,8 +480,6 @@
               </figure>
             </a>
           </div>
-        </div>
-        <div class="row">
           <div class="column">
             <a href="images/nodejs_500x500.jpg">
               <figure>
@@ -499,8 +504,6 @@
               </figure>
             </a>
           </div>
-        </div>
-        <div class="row">
           <div class="column">
             <a href="images/HTML CSS and Bootstrap_500x500.png">
               <figure>
@@ -525,8 +528,6 @@
               </figure>
             </a>
           </div>
-        </div>
-        <div class="row">
           <div class="column">
             <a href="images/MySQL_500x500.jpg">
               <figure>
@@ -552,8 +553,6 @@
               </figure>
             </a>
           </div>
-        </div>
-        <div class="row">
           <div class="column">
             <a href="images/Rails 5 - Become a Professional Developer_500.jpg">
               <figure>
@@ -579,8 +578,6 @@
               </figure>
             </a>
           </div>
-        </div>
-        <div class="row">
           <div class="column">
             <a href="images/VS Code_500.jpg">
               <figure>
@@ -605,8 +602,6 @@
               </figure>
             </a>
           </div>
-        </div>
-        <div class="row">
           <div class="column">
             <a href="images/Terraform for Beginners using GCP.jpg">
               <figure>
