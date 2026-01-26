@@ -33,11 +33,12 @@ Built using the HTML5 UP "Prologue" template - a single-page responsive portfoli
 - **assets/css/main.css**: Compiled CSS from SCSS source
 - **assets/sass/**: SCSS source files with modular architecture
 - **assets/js/**: JavaScript for site functionality
-- **images/**: Portfolio images, certificates (26), and headshot
+- **images/**: Portfolio images, certificates (27), and headshot
 
 ### Custom Additions
 - **CSS Grid Portfolio Layout**: Two-column grid with consistent card heights
-- **Collapsible Certificates Section**: Click-to-expand for 26 professional certificates
+- **Collapsible Certificates Section**: Click-to-expand for 27 professional certificates
+- **Certificates CSS Grid**: Auto-wraps to 3 per row, no manual row divs needed
 - **Custom Image Cropping**: CSS-based cropping for headshot (removes dead space and watermarks)
 
 ## Content Sections
@@ -55,7 +56,7 @@ Built using the HTML5 UP "Prologue" template - a single-page responsive portfoli
 - Professional headshot with CSS cropping
 - Background: 25+ years as software company CEO, returned to programming
 - Current role details and tech stack
-- 26 professional certificates (collapsible)
+- 27 professional certificates (collapsible, CSS Grid auto-wrap)
 
 ### Contact
 - Formspree integration for contact form
@@ -80,6 +81,14 @@ Built using the HTML5 UP "Prologue" template - a single-page responsive portfoli
 - Formspree for contact form handling
 
 ## Deployment
-- Hosted on GitHub Pages
+
+### Production (Kamal)
+- **Primary URL**: https://raynawara.com
+- **Server**: 152.53.194.50 (Netcup VPS)
+- **Container**: nginx:alpine serving static files
+- **Deploy**: `kamal deploy` from project root
+- **Config**: `config/deploy.yml`
+
+### GitHub Pages (Secondary)
+- **URL**: https://raynawara.github.io/My-Portfolio/
 - Push to `master` branch triggers automatic deployment
-- Site URL: https://raynawara.github.io/My-Portfolio/

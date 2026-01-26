@@ -2,7 +2,7 @@
 
 A professional portfolio website showcasing enterprise data systems, AI-powered analytics platforms, and full-stack web development work.
 
-**Live Site:** [https://raynawara.github.io/My-Portfolio/](https://raynawara.github.io/My-Portfolio/)
+**Live Site:** [https://raynawara.com](https://raynawara.com)
 
 ## About
 
@@ -29,7 +29,8 @@ Currently serving as sole architect and implementor of an enterprise-scale Postg
 
 ## Certifications
 
-26 professional certifications including:
+27 professional certifications including:
+- Mastering AI Agents Bootcamp
 - AWS Certified Cloud Practitioner
 - Ruby on Rails, React, Node.js
 - PostgreSQL, MySQL
@@ -38,7 +39,7 @@ Currently serving as sole architect and implementor of an enterprise-scale Postg
 
 ## Contact
 
-- **Email:** [Contact Form on Site](https://raynawara.github.io/My-Portfolio/#contact)
+- **Email:** [Contact Form on Site](https://raynawara.com/#contact)
 - **LinkedIn:** [linkedin.com/in/rj-nawara-533797162](https://www.linkedin.com/in/rj-nawara-533797162/)
 - **GitHub:** [github.com/RayNawara](https://github.com/RayNawara)
 
