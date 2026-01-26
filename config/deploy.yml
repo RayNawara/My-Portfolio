@@ -1,0 +1,31 @@
+# config/deploy.yml for Ray Nawara Portfolio
+<% require "dotenv"; Dotenv.load(".env") %>
+
+service: raynawara-portfolio
+
+image: registry.raynawara.com/raynawara-portfolio
+
+servers:
+  web:
+    - 152.53.194.50
+
+env:
+  retain_containers: 3
+
+proxy:
+  ssl: true
+  host: raynawara.com
+  healthcheck:
+    path: /
+
+registry:
+  server: registry.raynawara.com
+  username: admin
+  password:
+    - REGISTRY_PASSWORD
+
+ssh:
+  user: rjnawara
+
+builder:
+  arch: amd64
