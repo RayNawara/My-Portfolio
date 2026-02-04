@@ -21,7 +21,7 @@ Currently serving as sole architect and implementor of an enterprise-scale Postg
 ## Tech Stack
 
 - **Backend:** Rails 8.1, Ruby 4.0, Node.js
-- **Database:** PostgreSQL 18, BigQuery
+- **Database:** PostgreSQL 18, MySQL 8, BigQuery
 - **Frontend:** Hotwire (Turbo/Stimulus), JavaScript
 - **Infrastructure:** Kamal, Solid Queue/Cache/Cable, Google Cloud, Azure
 - **Automation:** Google Apps Script, Puppeteer, Supermetrics

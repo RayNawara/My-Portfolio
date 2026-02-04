@@ -19,8 +19,8 @@ Built using the HTML5 UP "Prologue" template - a single-page responsive portfoli
 6. **National Authentication Company Website** - Trading card grading and certification platform
 
 ### Tech Stack Showcased
-- Rails 8.1, Ruby 4.0, PostgreSQL 18
-- Hotwire (Turbo/Stimulus), Kamal deployment
+- Rails 8.1, Ruby 4.0, PostgreSQL 18, MySQL 8
+- JavaScript, Hotwire (Turbo/Stimulus), Kamal deployment
 - Solid Queue/Cache/Cable
 - Node.js, Google Apps Script, Puppeteer
 - Google Cloud (BigQuery), Microsoft Azure
